@@ -44,3 +44,10 @@ nest.conf
 ipchange.yaml
 ip_bans.yaml
 production_auth.json
+google_calendars.yaml
+known_devices.yaml
+zwcfg_0xd30a70fa.xml
+zwscene.xml
+www/community
+themes/
+*.august.conf
