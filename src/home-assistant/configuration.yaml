@@ -1,0 +1,19 @@
+---
+# Home Assistant configuration
+#
+# Template for creating a new Automation within the my-smart-home repo
+#
+# Reference Documentation
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
+homeassistant:
+  name: !secret home_name
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  country: US
+  language: en-US
+  currency: USD
+  unit_system: us_customary
+  time_zone: !secret home_time_zone
+  internal_url: !secret ha_local_base
+  external_url: !secret ha_remote_base
