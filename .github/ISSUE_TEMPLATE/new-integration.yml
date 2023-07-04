@@ -2,7 +2,7 @@
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
 name: 🏠 Home Assistant Integration - New
 description: Request to add a new integration into Home Assistant
-labels: ["kind/feature", "home-assistant"]
+labels: ["feature", "home-assistant"]
 title: "[HA-Integration]: <name>"
 assignees:
   - ZinkNotTheMetal
@@ -33,3 +33,8 @@ body:
       required: false
     - label: "No"
       required: false
+- type: input
+  id: purchaseUrl
+  attributes:
+    label: Add Amazon / store URL for referencing if new hardware is required
+    description: If new hardware 
