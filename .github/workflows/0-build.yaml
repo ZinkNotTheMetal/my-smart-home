@@ -17,7 +17,7 @@ permissions:
   pull-requests: write
 
 env:
-  FAKE_SECRETS_FILE: ./github/misc/secrets.fake.yaml
+  FAKE_SECRETS_FILE: ./.github/misc/secrets.fake.yaml
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
 
 jobs:
