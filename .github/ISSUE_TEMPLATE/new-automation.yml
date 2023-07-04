@@ -7,15 +7,15 @@ title: "[Automation]: <name>"
 assignees:
   - ZinkNotTheMetal
 body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Describe what the automation will do once implemented
-    validations:
-      required: true
-  - type: input
-    id: guideUrl
-    attributes:
-      label: Reference / Guide Url
-      description: Place the URL or the guide you are following here
+- type: textarea
+  id: description
+  attributes:
+    label: Description
+    description: Describe what the automation will do once implemented
+  validations:
+    required: true
+- type: input
+  id: guideUrl
+  attributes:
+    label: Reference / Guide Url
+    description: Place the URL or the guide you are following here
