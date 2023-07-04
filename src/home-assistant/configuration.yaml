@@ -11,7 +11,7 @@ homeassistant:
   longitude: !secret home_longitude
   elevation: !secret home_elevation
   country: US
-  language: en-US
+  language: en
   currency: USD
   unit_system: us_customary
   time_zone: !secret home_time_zone
