@@ -29,12 +29,13 @@ body:
     id: automationIdea
     attributes:
       label: Automation Idea
-      description: Put in any URLs / text to describe the automation(s) you want to add for this integration
+      description: |
+        Describe in detail the automation idea with steps, URLs, etc.
   - type: dropdown
     id: hardwareRequired
     attributes:
       label: New Hardware?
-      description: | 
+      description: |
         Will you be purchasing new hardware for this integration?
       options:
         - "No"

@@ -34,14 +34,14 @@ body:
     attributes:
       label: Has this happened before?
       options:
-      - label: Yes?
-        required: false
+        - label: Yes?
+          required: false
   - type: textarea
     attributes:
       label: Anything else?
       description: |
-        Links? References? 
+        Links? References?
         Anything that will give me more context about the issue you are encountering!
 
-        Tip: You can attach files by clicking this area to highlight it 
-        and then dragging files in.
+        Tip: You can attach files by clicking this area to highlight it
+         and then dragging files in.

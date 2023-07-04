@@ -4,6 +4,7 @@
 #
 name: Home Assistant CI
 
+# yamllint disable rule:truthy
 on:
   push:
   pull_request:
