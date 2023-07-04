@@ -1,6 +1,6 @@
 # Reference Documentation
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
-name: New Home Assistant Integration
+name: Home Assistant Integration - New
 description: Request to add a new integration into Home Assistant
 labels: ["kind/feature", "home-assistant"]
 title: "[HA-Integration]: <name>"
