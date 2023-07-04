@@ -2,7 +2,7 @@
 # Continuous Integration Build for Home Assistant and ESPHome
 #
 #
-name: Home Assistant CI
+name: Home Assistant Lint & Build
 
 # yamllint disable rule:truthy
 on:
@@ -11,30 +11,28 @@ on:
   schedule:
     - cron: 0 12 * * *
 
+# Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   FAKE_SECRETS_FILE: ./github/misc/secrets.fake.yaml
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
 
 jobs:
-  remarklint:
-    name: 🧹 Markdown lint
+  lint:
+    name: 🧹 Run Linting Tools
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out configuration from GitHub
         uses: actions/checkout@v3.5.3
-      - name: Running Remark lint
+      - name: 🚀 Run remark-lint (Markdown)
         uses: "docker://pipelinecomponents/remark-lint:latest"
-        continue-on-error: true
+        continue-on-error: false
         with:
           args: "remark --no-stdout --color --frail --use preset-lint-recommended ."
-
-  yamllint:
-    name: 🧹 YAML lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⤵️ Check out configuration from GitHub
-        uses: actions/checkout@v3.5.3
-        # https://github.com/marketplace/actions/frenck-s-yamllint
-      - name: 🚀 Run yamllint
+      - name: 🚀 Run yamllint (YAML)
         uses: frenck/action-yamllint@v1.4.1
 
   home-assistant:
@@ -73,28 +71,3 @@ jobs:
         # yamllint disable rule:line-length
         run: |
           for file in $(find ./config/esphome -type f -name "*.yaml" -maxdepth 1 -not -name "secrets.yaml"); do esphome "${file}" config; done
-
-  release:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    needs: [home-assistant, esphome]
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: ⤵️ Check out configuration from GitHub
-        uses: actions/checkout@v3.5.3
-      - name: 📦 Install Zip for Github
-        uses: montudor/action-zip@v1
-      - name: 📦 Zip Home Assistant contents
-        run: |
-          (cd src/home-assistant && zip -q ../../.dist/config.zip *)
-          (cd src && zip -q ../.dist/config.zip ui)
-        working-directory: ./src
-      - name: Create GitHub release
-        uses: ncipollo/release-action@v1.12.0
-        with:
-          artificats: "./dist/config.zip"
-          generateReleaseNotes: true
-          commit: ${}
-          tag: ${}
-          

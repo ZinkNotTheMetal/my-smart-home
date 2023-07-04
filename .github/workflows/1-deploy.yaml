@@ -1,0 +1,38 @@
+name: Create a release
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+# Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: [home-assistant, esphome]
+    if: ${{ github.ref == 'refs/heads/main' && github.event.home-assistant.conclusion == 'success' }}
+    steps:
+      - name: ⤵️ Check out configuration from GitHub
+        uses: actions/checkout@v3.5.3
+      - name: 📦 Install Zip for Github
+        uses: montudor/action-zip@v1
+      - name: 📦 Zip Home Assistant contents
+        run: |
+          (cd src/home-assistant && zip -q ../../.dist/config.zip *)
+          (cd src && zip -q ../.dist/config.zip ui)
+        working-directory: ./src
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artificats: "./dist/config.zip"
+          generateReleaseNotes: true
+          commit: ${{ github.ref_name }}
+          tag: ${{ github.ref_name}}
+          
