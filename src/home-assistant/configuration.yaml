@@ -5,17 +5,20 @@
 #
 # Reference Documentation
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
+
+# https://www.home-assistant.io/integrations/api/
+api:
+# https://www.home-assistant.io/integrations/default_config/
+# Loads default set of integrations. Do NOT remove.
+default_config:
+
 homeassistant:
   name: !secret home_name
   latitude: !secret home_latitude
   longitude: !secret home_longitude
+  time_zone: !secret home_time_zone
   elevation: !secret home_elevation
   country: US
   language: en
   currency: USD
   unit_system: us_customary
-  time_zone: !secret home_time_zone
-  internal_url: !secret ha_local_base
-  external_url: !secret ha_remote_base
-
-lovelace: !include ui/main.yaml
