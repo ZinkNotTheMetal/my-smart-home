@@ -1,3 +1,8 @@
+---
+# Bug report for GitHub
+#
+# Template for creating a new Automation within the my-smart-home repo
+#
 # Reference Documentation
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
 name: 👨‍💻 Automation - New

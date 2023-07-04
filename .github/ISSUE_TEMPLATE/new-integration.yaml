@@ -1,3 +1,8 @@
+---
+# Bug report for GitHub
+#
+# Template for creating a new Home Assistant integration within the my-smart-home repo
+#
 # Reference Documentation
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
 name: 🏠 Home Assistant Integration - New
@@ -38,4 +43,4 @@ body:
   id: purchaseUrl
   attributes:
     label: Add Amazon / store URL for referencing if new hardware is required
-    description: If new hardware 
+    description: If new hardware

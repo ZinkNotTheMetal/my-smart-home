@@ -1,3 +1,7 @@
+---
+# Continuous Integration Build for Home Assistant and ESPHome
+#
+#
 name: Home Assistant CI
 
 on:
