@@ -1,0 +1,35 @@
+# Reference Documentation
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax
+name: New Integration
+description: Request to add a new integration into Home Assistant
+labels: ["kind/feature", "home-assistant"]
+title: "[HA-Integration]: <name>"
+assignees:
+  - ZinkNotTheMetal
+body:
+- type: textarea
+  id: description
+  attributes:
+    label: Description
+    description: Describe what the integration will do once implemented
+  validations:
+    required: true
+- type: input
+  id: integrationUrl
+  attributes:
+    label: Integration URL
+    description: Place the Home Assistant integration URL here for reference documentation
+- type: textarea
+  id: automationIdea
+  attributes:
+    label: Automation Idea
+    description: Put in any URLs / text to describe the automation(s) you want to add for this integration
+- type: checkboxes
+  attributes:
+    label: New Hardware?
+    description: Will there be any new hardware that you will need to build / buy to integrate this?
+    options:
+    - label: Yes
+      required: false
+    - label: No
+      required: false 
