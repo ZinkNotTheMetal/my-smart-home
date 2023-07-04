@@ -1,5 +1,10 @@
-name: Create a release
+---
+# Continuous Delivery for Home Assistant and ESPHome
+#
+#
+name: Create a Release
 
+# yamllint disable rule:truthy
 on:
   workflow_dispatch:
   release:
@@ -16,7 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: ${{ github.ref == 'refs/heads/main' && github.event.home-assistant.conclusion == 'success' }}
+    # yamllint disable rule:line-length
+    if: |
+      ${{ github.ref == 'refs/heads/main' && github.event.home-assistant.conclusion == 'success' }}
     steps:
       - name: ⤵️ Check out configuration from GitHub
         uses: actions/checkout@v3.5.3
@@ -34,4 +41,3 @@ jobs:
           generateReleaseNotes: true
           commit: ${{ github.ref_name }}
           tag: ${{ github.ref_name}}
-          
