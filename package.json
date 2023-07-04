@@ -1,0 +1,15 @@
+{
+	"name": "my-smart-home",
+	"version": "0.1.0",
+	"description": "My Smart Home Configuration (Home Assistant)",
+	"scripts": {
+    "clean": "rm -rf .dist/*",
+		"dist": "(cd src/home-assistant && zip -rq ../../.dist/config.zip *) && (cd src && zip -rq ../.dist/config.zip ui)"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:ZinkNotTheMetal/my-smart-home.git"
+	},
+	"author": "William Zink",
+	"license": "MIT"
+}
