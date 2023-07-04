@@ -1,9 +1,0 @@
----
-# Bootstrap for my Lovelace UI configuration.
-# It loads all resources for Lovelace dynamically from sub-folders
-#
-# Views are actually included one by one, this is in order to preserve
-#  the order of the tabs of the view in the UI
-title: Home Control Panel
-# Example
-#  https://github.com/SeLLeRoNe/HA-Config/blob/master/ui-lovelace.yaml

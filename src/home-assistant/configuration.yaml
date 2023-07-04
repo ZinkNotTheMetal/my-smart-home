@@ -18,5 +18,4 @@ homeassistant:
   internal_url: !secret ha_local_base
   external_url: !secret ha_remote_base
 
-lovelace:
-  resources: !include ui/main.yaml
+lovelace: !include ui/main.yaml
