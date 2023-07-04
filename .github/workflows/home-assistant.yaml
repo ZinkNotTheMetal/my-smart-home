@@ -11,6 +11,9 @@ on:
   schedule:
     - cron: 0 12 * * *
 
+env:
+  FAKE_SECRETS_FILE: ./github/misc/secrets.fake.yaml
+
 jobs:
   remarklint:
     name: 🧹 Markdown lint
@@ -45,7 +48,7 @@ jobs:
         uses: frenck/action-home-assistant@v1.4
         with:
           path: "./src/home-assistant"
-          secrets: ./.github/misc/secrets.fake.yaml
+          secrets: $FAKE_SECRETS_FILE
           version: stable
 
   esphome:
@@ -65,8 +68,33 @@ jobs:
           pip list
           esphome version
       - name: Copy secrets stub into configuration folder
-        run: cp ./.github/misc/secrets.fake.yaml ./src/esphome/secrets.yaml
+        run: cp $FAKE_SECRETS_FILE ./src/esphome/secrets.yaml
       - name: Run esphome on all files
         # yamllint disable rule:line-length
         run: |
           for file in $(find ./config/esphome -type f -name "*.yaml" -maxdepth 1 -not -name "secrets.yaml"); do esphome "${file}" config; done
+
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: [home-assistant, esphome]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: ⤵️ Check out configuration from GitHub
+        uses: actions/checkout@v3.5.3
+      - name: 📦 Install Zip for Github
+        uses: montudor/action-zip@v1
+      - name: 📦 Zip Home Assistant contents
+        run: |
+          (cd src/home-assistant && zip -q ../../.dist/config.zip *)
+          (cd src && zip -q ../.dist/config.zip ui)
+        working-directory: ./src
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artificats: "./dist/config.zip"
+          generateReleaseNotes: true
+          commit: ${}
+          tag: ${}
+          

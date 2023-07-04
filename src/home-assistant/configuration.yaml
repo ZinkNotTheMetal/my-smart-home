@@ -17,3 +17,6 @@ homeassistant:
   time_zone: !secret home_time_zone
   internal_url: !secret ha_local_base
   external_url: !secret ha_remote_base
+
+lovelace:
+  resources: !include ui/main.yaml
