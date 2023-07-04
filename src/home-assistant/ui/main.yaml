@@ -7,4 +7,4 @@
 title: Home Control Panel
 # Example
 #  https://github.com/SeLLeRoNe/HA-Config/blob/master/ui-lovelace.yaml
-views: !include ui/views/dashboard.yaml
+views: !include views/dashboard.yaml
