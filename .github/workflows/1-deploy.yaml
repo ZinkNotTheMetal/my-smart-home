@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    needs: [home-assistant, esphome]
     if: ${{ github.ref == 'refs/heads/main' && github.event.home-assistant.conclusion == 'success' }}
     steps:
       - name: ⤵️ Check out configuration from GitHub
