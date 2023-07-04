@@ -32,7 +32,6 @@ jobs:
       - name: 📦 Zip Home Assistant contents
         run: |
           (cd src/home-assistant && zip -q ../../.dist/config.zip *)
-          (cd src && zip -q ../.dist/config.zip ui)
         working-directory: ./src
       - name: Create GitHub release
         uses: ncipollo/release-action@v1.12.0
