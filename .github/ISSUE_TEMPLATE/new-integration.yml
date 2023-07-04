@@ -24,15 +24,16 @@ body:
   attributes:
     label: Automation Idea
     description: Put in any URLs / text to describe the automation(s) you want to add for this integration
-- type: checkboxes
+- type: dropdown
+  id: hardwareRequired
   attributes:
     label: New Hardware?
     description: Will there be any new hardware that you will need to build / buy to integrate this?
     options:
-    - label: "Yes"
-      required: false
-    - label: "No"
-      required: false
+      - "Yes"
+      - "No"
+  validations:
+    required: true
 - type: input
   id: purchaseUrl
   attributes:
