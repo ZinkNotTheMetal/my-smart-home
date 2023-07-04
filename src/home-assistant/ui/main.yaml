@@ -7,5 +7,14 @@
 
 # Example
 #  https://github.com/SeLLeRoNe/HA-Config/blob/master/ui-lovelace.yaml
-views:
-  - !include views/dashboard.yaml
+mode: yaml
+resources:
+  # - url:
+  #   type:
+dashboards:
+  lovelace-yaml:
+    mode: yaml
+    title: Dashboard
+    icon: mdi:script
+    show_in_sidebar: true
+    filename: views/dashboard.yaml
