@@ -5,12 +5,9 @@
 # Views are actually included one by one, this is in order to preserve
 #  the order of the tabs of the view in the UI
 
-# Example
-#  https://github.com/SeLLeRoNe/HA-Config/blob/master/ui-lovelace.yaml
+# Example:
+# https://github.com/SeLLeRoNe/HA-Config/blob/master/ui-lovelace.yaml
 mode: yaml
-resources:
-  # - url:
-  #   type:
 dashboards:
   lovelace-yaml:
     mode: yaml
