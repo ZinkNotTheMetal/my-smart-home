@@ -29,7 +29,7 @@ body:
     label: New Hardware?
     description: Will there be any new hardware that you will need to build / buy to integrate this?
     options:
-    - label: Yes
+    - label: "Yes"
       required: false
-    - label: No
+    - label: "No"
       required: false
