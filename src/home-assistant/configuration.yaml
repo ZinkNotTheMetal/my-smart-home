@@ -22,3 +22,5 @@ homeassistant:
   language: en
   currency: USD
   unit_system: us_customary
+  # Packages #
+  packages: !include_dir_named integrations

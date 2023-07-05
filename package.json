@@ -3,9 +3,10 @@
 	"version": "0.1.0",
 	"description": "My Smart Home Configuration (Home Assistant)",
 	"scripts": {
-		"dev": "docker-compose -f .infrastructure/docker/docker-compose.yml up",
+		"dev": "docker-compose --env-file .infrastructure/docker/.env.example -f .infrastructure/docker/docker-compose.yml up",
 		"clean": "rm -rf .dist/*",
-		"dist": "(cd src/home-assistant && zip -rq ../../.dist/config.zip *)"
+		"dist": "(cd src/home-assistant && zip -rq ../../.dist/config.zip *)",
+		"start": "docker-compose --env-file .infrastructure/docker/.env.prod -f .infrastructure/docker/docker-compose.yml up"
 	},
 	"repository": {
 		"type": "git",
