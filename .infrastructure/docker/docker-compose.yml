@@ -1,3 +1,5 @@
+---
+# Docker Compose file to create all smart home services
 version: "3"
 
 # Follow /docs/GETTING_STARTED.md if confused
@@ -9,6 +11,8 @@ services:
     restart: unless-stopped
     ports:
       - 1883:1883
+    networks:
+      smart_home_network:
     # If IPVLAN L3 docker network created by home-server-configuration
     # Ports can be removed from above as this will give each container
     #  it's own IP address. Note some networks cannot handle this but Unifi can
@@ -23,13 +27,15 @@ services:
       - TZ="${TIME_ZONE}"
 
   homeassistant:
-    image: homeassistant/home-assistant:stable # Latest Production
+    image: homeassistant/home-assistant:stable   # Latest Production
     # image: homeassistant/home-assistant:rc     # Latest Beta
     # image: homeassistant/home-assistant:x.x.x  # Specific Version
     container_name: homeassistant
     restart: unless-stopped
     ports:
       - 8123:8123
+    networks:
+      smart_home_network:
     # If IPVLAN L3 docker network created by home-server-configuration
     # Ports can be removed from above as this will give each container
     #  it's own IP address. Note some networks cannot handle this but Unifi can
@@ -63,6 +69,8 @@ services:
     restart: unless-stopped
     ports:
       - 1880:1880
+    networks:
+      smart_home_network:
     # If IPVLAN L3 docker network created by home-server-configuration
     # Ports can be removed from above as this will give each container
     #  it's own IP address. Note some networks cannot handle this but Unifi can
@@ -81,3 +89,6 @@ services:
       timeout: 10s
       retries: 6
       start_period: 15s
+
+networks:
+  smart_home_network:

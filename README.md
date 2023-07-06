@@ -1,6 +1,6 @@
 # Welcome to my [Home Assistant (HA)](https://home-assistant.io/) configuration using Hass.io
 
-🏠 Home Assistant configuration &amp; Documentation for my Smart Home. Be sure to ⭐ it for support. Updated FREQUENTLY!
+🏠 Home Assistant configuration & Documentation for my Smart Home. Be sure to ⭐ it for support. Updated FREQUENTLY!
 
 I tried to develop this with a developers mindset and following some conventions I have learned over the years. I have a better understanding of project layout and structure now and feel this setup will help me moving forward. With that in mind it will not look like everyone else's setup. Things will be found in the src/ directory and split out from there.
 
