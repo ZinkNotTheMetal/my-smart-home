@@ -4,7 +4,7 @@
 
 ## Related Tickets & Documents
 
-- Related Issue: #
-- Closes: #
+*   Related Issue: #
+*   Closes: #
 
 ## Testing instructions

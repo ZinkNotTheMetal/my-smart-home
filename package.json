@@ -13,5 +13,8 @@
 		"url": "git@github.com:ZinkNotTheMetal/my-smart-home.git"
 	},
 	"author": "William Zink",
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"remark": "^14.0.3"
+	}
 }

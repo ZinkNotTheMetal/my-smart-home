@@ -51,3 +51,4 @@ zwscene.xml
 www/community
 themes/
 *.august.conf
+node_modules
