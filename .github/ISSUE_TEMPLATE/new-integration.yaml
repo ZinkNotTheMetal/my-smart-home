@@ -19,6 +19,11 @@ body:
       description: Describe what the integration will do once implemented
     validations:
       required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: Any tasks that you want to capture TODO here
   - type: input
     id: integrationUrl
     attributes:
