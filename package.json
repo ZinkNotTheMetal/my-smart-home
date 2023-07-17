@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"description": "My Smart Home Configuration (Home Assistant)",
 	"scripts": {
+		"lint": "yamllint .yamllint && stylelint \"**/*.md\"",
 		"dev": "docker-compose --env-file .infrastructure/docker/.env.example -f .infrastructure/docker/docker-compose.yml up",
 		"clean": "rm -rf .dist/*",
 		"dist": "(cd src/home-assistant && zip -rq ../../.dist/config.zip *)",
@@ -15,6 +16,7 @@
 	"author": "William Zink",
 	"license": "MIT",
 	"devDependencies": {
-		"remark": "^14.0.3"
+		"markdownlint-cli": "^0.35.0",
+		"yaml-lint": "^1.7.0"
 	}
 }
