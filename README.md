@@ -1,12 +1,12 @@
 # Welcome to my Smart Home! 🤖
 
-Welcome to my home 🏠... well kind of.
+Here is my home 🏡, well digitally of course!
 
 Wait, what's a smart home?! I'm so new at this what does this all mean?? Check out my [Getting Started Guide](docs/GETTING_STARTED.md)
 
 ## What is this repo?
 
-This is a mono-repository that has EVERYTHING related to my smart home. This was my [previous attempt](https://github.com/ZinkNotTheMetal/HomeAssistant/tree/master). But here's where I take everything I've learned 🧠 and put it into this attempt repository.
+This is a mono-repository that has EVERYTHING related to my smart home. This was my [previous attempt 💩](https://github.com/ZinkNotTheMetal/HomeAssistant/tree/master). But here's where I take everything I've learned 🧠 and put it into this attempt repository.
 
 -   [My Home Assistant Configuration](src/home-assistant/)
 -   [My ESP Home Configuration](src/esphome/)
@@ -19,7 +19,7 @@ The benefit of this structure is that it allows me to keep all of the files that
 
 By trade I am a software developer, so I am constantly curious on how to setup things using best practices and conventions. I am creating this project using the concept of the source `src/` directory.
 
-This is my 🏠 Home Assistant configuration & documentation for my Smart Home. Be sure to ⭐ it for support. Updated FREQUENTLY!
+Be sure to ⭐ it for support. Updated FREQUENTLY!
 
 ## Information
 
