@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"description": "My Smart Home Configuration (Home Assistant)",
 	"scripts": {
-		"lint": "yamllint .yamllint && stylelint \"**/*.md\"",
+		"lint": "(yamllint .yamllint) && (markdownlint \"**/*.md\" --ignore node_modules)",
+		"lint-fix": "(yamllint .yamllint --fix) && (markdownlint \"**/*.md\" --fix --ignore node_modules)",
 		"dev": "docker-compose --env-file .infrastructure/docker/.env.example -f .infrastructure/docker/docker-compose.yml up",
 		"clean": "rm -rf .dist/*",
 		"dist": "(cd src/home-assistant && zip -rq ../../.dist/config.zip *)",
