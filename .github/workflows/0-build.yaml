@@ -6,10 +6,7 @@ name: Home Assistant Lint & Build
 
 # yamllint disable rule:truthy
 on:
-  push:
   pull_request:
-  schedule:
-    - cron: 0 12 * * *
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -27,11 +24,12 @@ jobs:
     steps:
       - name: ⤵️ Check out configuration from GitHub
         uses: actions/checkout@v3.5.3
-      - name: 🚀 Run remark-lint (Markdown)
-        uses: "docker://pipelinecomponents/remark-lint:latest"
-        continue-on-error: false
+      - name: 🚀 Run markdownlint-cli (Markdown)
+        uses: nosborn/github-action-markdown-cli@v3.3.0
         with:
-          args: "remark --no-stdout --color --frail --use preset-lint-recommended ."
+          files: .
+          ignore_files: node_modules
+          dot: true
       - name: 🚀 Run yamllint (YAML)
         uses: frenck/action-yamllint@v1.4.1
 

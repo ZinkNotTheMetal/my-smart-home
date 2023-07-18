@@ -1,20 +1,28 @@
-### Networking
+<!-- markdownlint-disable MD013 - Disabling as it interferes with tables -->
+<!-- markdownlint-disable MD033 - Disabling as it has a better look for GitHub -->
+# Devices utilized
 
-At the core of a smart house you need good networking equipment. I made the switch to the Prosumer Unifi and have been very happy with it. It has some pretty advanced features and allows me to setup VPN to the house relatively easily
+## Networking
+
+At the core of a smart house you need good networking equipment.
+I made the switch to the Prosumer Unifi and have been very happy with it.
+The Dream Machine Pro has some pretty advanced features and allows me to setup
+VPN & other advanced routing capabilities relatively easily
 
 | Device    | Quantity | Integration | Notes |
 | --------- | :------: | ------- | ----- |
-| <a href="https://store.ui.com/us/en/pro/category/all-switching/products/udm-pro"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F9df27ed4-c4ae-471a-8982-f5b0650da76a%2Fd9511b02-b4bd-46ff-976f-e7bbccf99ae8.png&q=75&w=3840" width="px" height="150px"></a> [Dream Machine Pro]() | 1 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | The Dream Machine Pro is a fantastic controller, switch and NVR system. My only down of this system is that it doesn't have any POE ports. |
-| <a href="https://store.ui.com/us/en/products/usw-24"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F467359c4-e5c3-487b-ae00-f6b7de29c6fc%2F94c1e7c7-1302-4484-a2cc-0e155b46f615.png&q=75&w=3840" width="px" height="150px"></a> [24 port Switch]() | 1 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | 24 port switch with 16 POE+ ports. I use this to power APs and additional devices |
+| <a href="https://store.ui.com/us/en/pro/category/all-accessories/products/toolless-mini-rack"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F12f6ef8d-1787-4dd6-bd95-6f113965bda0%2F118f866d-87e1-471e-b73d-0ec01b434f5a.png&q=75&w=3840" width="px" height="160px"></a> [Unifi -Toolless Mini Rack](https://store.ui.com/us/en/pro/category/all-switching/products/udm-pro) | 1 | N/A | This U6 rack was pretty nice I'd say 4/5 stars it doesn't align the networking plate at the same level as the other devices which is kind of odd to me. |
+| <a href="https://store.ui.com/us/en/pro/category/all-switching/products/udm-pro"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F9df27ed4-c4ae-471a-8982-f5b0650da76a%2Fd9511b02-b4bd-46ff-976f-e7bbccf99ae8.png&q=75&w=3840" width="px" height="150px"></a> [Dream Machine Pro](https://store.ui.com/us/en/pro/category/all-switching/products/udm-pro) | 1 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | The Dream Machine Pro is a fantastic controller, switch and NVR system. My only down of this system is that it doesn't have any POE ports. |
+| <a href="https://store.ui.com/us/en/products/usw-24"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F467359c4-e5c3-487b-ae00-f6b7de29c6fc%2F94c1e7c7-1302-4484-a2cc-0e155b46f615.png&q=75&w=3840" width="px" height="150px"></a> [24 port Switch](https://store.ui.com/us/en/products/usw-24) | 1 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | 24 port switch with 16 POE+ ports. I use this to power APs and additional devices |
 | <a href="https://store.ui.com/us/en/pro/category/all-wifi/products/u6-plus"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F6d5c6141-e2e9-416a-b789-53e59416bb1a%2Ff13853b8-ddfe-4b56-b25d-dab3ffe81b0e.png&q=75&w=3840" width="px" height="150px"></a> [U6+](https://store.ui.com/us/en/pro/category/all-wifi/products/u6-plus) | 3 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | At the time of purchase they were out of the U6 Lite so I had to step it up to these. But I am overall impressed with Unifi equipment and will be mounting them on the ceiling for the best coverage |
 | <a href="https://store.ui.com/us/en/pro/category/all-wifi/products/u6-lite"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2F6d5c6141-e2e9-416a-b789-53e59416bb1a%2Ff13853b8-ddfe-4b56-b25d-dab3ffe81b0e.png&q=75&w=3840" width="px" height="150px"></a> [U6 Lite](https://store.ui.com/us/en/pro/category/all-wifi/products/u6-lite) | 1 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | I have an old U6 Lite as they were out of stock I had to go with the three other plus models. If this doesn't fit it I will upgrade to the Plus |
 | <a href="https://store.ui.com/us/en/pro/category/all-power-tech/products/usp-pdu-pro"><img src="https://images.svc.ui.com/?u=https%3A%2F%2Fcdn.ecomm.ui.com%2Fproducts%2Fb178b896-3499-4fa3-8c56-ce2822be933f%2F79ee9194-a423-479a-94e3-3189a71d4295.png&q=75&w=2048" width="px" height="150px"></a><br>[Power Distribution Professional](https://store.ui.com/us/en/pro/category/all-power-tech/products/usp-pdu-pro) | 1 | [Unifi Network](https://www.home-assistant.io/integrations/unifi/) | This is the first time I've used this unit. But I like that I can control the power of the cabinet if I need, I can even reset the modem without having to manually unplug it |
 
-#### Additional Resources
+### Additional Resources
 
 [Unifi - Home Assistant Community Add-on](https://community.home-assistant.io/t/home-assistant-community-add-on-unifi-controller/56297)
 
-### Computers, storage & more
+## Computers, storage & more
 
 | Device | Purpose |
 | ------ | ------- |
@@ -33,7 +41,7 @@ This time around I went with Smart switches vs Smart bulbs. I really do like Phi
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | <a href="https://amzn.to/3NJZbt4"><img src="https://m.media-amazon.com/images/I/51vU5wLPWUL._AC_SX679_.jpg" width="200px"></a><br> [Lutron Caseta](https://amzn.to/3NJZbt4) | {WIP} | Clear Connect | [Lutron Caseta](https://www.home-assistant.io/integrations/lutron_caseta/) | I'm new to these switches but I like the reliability over the Philips Hue. It also saves a lot per bulb rather than Philips Hue. They also have a pleasant dimming effect when turning off. |
 
-### Indoor Climate
+## Indoor Climate
 
 | Device  | Quantity | Connection | Component | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
@@ -42,7 +50,7 @@ This time around I went with Smart switches vs Smart bulbs. I really do like Phi
 | <a href="https://www.homedepot.com/p/Home-Decorators-Collection-Bayshire-60-in-LED-Indoor-Outdoor-Matte-Black-Ceiling-Fan-with-Remote-Control-and-White-Color-Changing-Light-Kit-102L60MBKDB/314467714?MERCH=REC-_-rv_cartempty_rr-_-NA-_-314467714-_-N&"><img src="https://images.thdstatic.com/productImages/c563e5f6-c7a7-414b-9832-1a94a688ed90/svn/matte-black-home-decorators-collection-ceiling-fans-with-lights-102l60mbkdb-64_100.jpg" width="200px" height="95px" /></a><br> [Bayshire Fan - 60"](https://www.homedepot.com/p/Home-Decorators-Collection-Bayshire-60-in-LED-Indoor-Outdoor-Matte-Black-Ceiling-Fan-with-Remote-Control-and-White-Color-Changing-Light-Kit-102L60MBKDB/314467714?MERCH=REC-_-rv_cartempty_rr-_-NA-_-314467714-_-N&) | 1 | {WIP} | {WIP} | Bought this fan from Home Depot and although it had everything integrated I wanted a propeller theme for my office. So this means I will need to integrate WiFi -> RF |
 | <a href="https://amzn.to/3DiugPW"><img src="https://m.media-amazon.com/images/I/71QMEc9iffL._AC_SX679_.jpg" width="160px" height="110px" /></a><br> [Kidde Hardwired Smoke & Carbon Monoxide Detector](https://amzn.to/3DiugPW) | 6 | Hardwired | [Z-Wave+ Relay](https://www.home-assistant.io/components/nest/) | I tried to go with hardwired FIRST ALERT Z-wave and those came out to be a joke. I even wrote an Amazon review I was so disappointed. I came across this [YouTube video](https://www.youtube.com/watch?v=UCLH3V-XyzU) that explained how relaying worked and got me to install that instead. The two pack is a much better deal than the 1 or the 4 |
 
-### Media
+## Media
 
 | Device  | Quantity | Connection | Component | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
@@ -51,14 +59,13 @@ This time around I went with Smart switches vs Smart bulbs. I really do like Phi
 | <a href="https://amzn.to/3DhWqKx"><img src="https://m.media-amazon.com/images/I/71FbQ4nEZfL._AC_SX679_.jpg" width="200px"/></a><br> [Sonos Move](http://a.co/d/6aAYt6w) | 1 | Wi-Fi | [SONOS](https://www.home-assistant.io/components/sonos/) | Expensive at $399 but it is 'portable', the battery life is phenomenal I have gotten 9 hours at 75% volume the entire time. I'm very impressed with the SONOS Move |
 | <a href="https://amzn.to/44tKYry"><img src="https://m.media-amazon.com/images/I/81jRyQeYI1S._AC_SX679_.jpg" width="210px" /></a><br> [83" Sony Bravia](https://amzn.to/44tKYry) | 1 | Wi-Fi | [Sony Bravia TV](https://www.home-assistant.io/integrations/braviatv/) | This is my main main TV. Highly recommend OLED and this is the 4K model, I had an LG OLED previously and although I liked it I wasn't a big fan of the operating system |
 
-### Security
+## Security
 
 | Device  | Quantity | Connection | Component | Notes |
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | <a href="https://amzn.to/3aQZsZd"><img src="https://m.media-amazon.com/images/I/71ad5XOAzTS._AC_SX679_.jpg" width="130px" height="105px" /></a><br> [August Smart Lock Pro - Gen 4](https://amzn.to/3aQZsZd) | 2 | Z-Wave / Wi-Fi | [August Lock](https://www.home-assistant.io/integrations/august/) | The new August Lock component in Home Assistant is fast and reliable. Z-Wave has been hit or miss for some devices. I like that the new Gen 4 no longer require the Wi-Fi hub and the size is much smaller |
 | <a href="https://amzn.to/3DaWtrF"><img src="https://m.media-amazon.com/images/I/51z8ff2relL._AC_SX679_.jpg" width="200px" height="120px" /></a><br> [Aqara Z-Wave Plus Door Sensor](https://amzn.to/3DaWtrF) | 5 | Z-Wave | [Z-Wave](https://www.home-assistant.io/components/zwave/) | TheHookUp has a great video about contact sensors. [YouTube link](https://www.youtube.com/watch?v=c4-8Y7jUCn0) - You do need a Z-Wave hub if you don't already have one. The small size of these really amaze me anytime I deal with them. |
 | <a href="https://amzn.to/3KmGbjF"><img src="https://m.media-amazon.com/images/I/51z8ff2relL._AC_SX679_.jpg" width="200px" height="120px" /></a><br> [REOLINK Video Doorbell](https://amzn.to/3DaWtrF) | 1 | Ethernet (PoE) | [Reolink IP NVR/camera](https://www.home-assistant.io/integrations/reolink) | TheHookUp has a great video on doorbell cameras. [YouTube link](https://youtu.be/Cj7Fwu_d1yc?t=115) - I felt with the price and the camera quality it was hard to pass up. I also wish I could use my existing chime but you can't |
-
 
 TODO: Add garage door / sensor
 
@@ -68,7 +75,8 @@ TODO: Add garage door / sensor
 | ------------- | :---: | ------------- | ------------- | ------------- |
 | <a href="https://amzn.to/37VpOaX"><img src="https://images-na.ssl-images-amazon.com/images/I/61aNUTvrUhL._SL1500_.jpg" width="200px" height="100px" /></a><br> [U by Moen](https://amzn.to/37VpOaX) | 1 | Wi-Fi | N/A Yet (Hoping to use Wi-fi & API) | Amazing Shower Controller, but expensive and requires 2 different parts, (3 if you want the battery)  |
 
-### Sprinkler
+## Sprinkler System
+
 | Device | Connection | Component | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | <a href="https://amzn.to/3Oex72E"><img src="https://m.media-amazon.com/images/I/516Au-oBKiL._AC_SX679_.jpg" width="200px"></a><br>[Rachio 3 8-Zone](https://amzn.to/3Oex72E) | Rachio | [Rachio](https://www.home-assistant.io/integrations/rachio/) | This is my first time with a house and a sprinkler system. I've heard great things with the app. I'm excited to hook this into Home Assistant for additional functionality |
@@ -79,13 +87,13 @@ Add W/D
 
 ### Software Services / Integrations
 
-*   Weather and Climate related
-    *   [Windy](https://www.windy.com/)
-    *   [Open Weather Map Api for Node-Red](https://openweathermap.org/api)
-    *   [Pollen](https://www.home-assistant.io/components/sensor.pollen/) sensor for allergy related information
-*   Presence:
-    *   [Life360](https://github.com/pnbruckner/homeassistant-config/blob/master/docs/life360.md)
-    *   [iOS app](https://itunes.apple.com/us/app/home-assistant-companion/id1099568401?mt=8)
-    *   [Waze](https://www.home-assistant.io/components/sensor.waze_travel_time/) (for commute times)
-*   [iOS for Notifications](https://home-assistant.io/docs/ecosystem/ios/notifications/basic/)
-*   [Github](https://www.home-assistant.io/components/github/)
+* Weather and Climate related
+  * [Windy](https://www.windy.com/)
+  * [Open Weather Map Api for Node-Red](https://openweathermap.org/api)
+  * [Pollen](https://www.home-assistant.io/components/sensor.pollen/) sensor for allergy related information
+* Presence:
+  * [Life360](https://github.com/pnbruckner/homeassistant-config/blob/master/docs/life360.md)
+  * [iOS app](https://itunes.apple.com/us/app/home-assistant-companion/id1099568401?mt=8)
+  * [Waze](https://www.home-assistant.io/components/sensor.waze_travel_time/) (for commute times)
+* [iOS for Notifications](https://home-assistant.io/docs/ecosystem/ios/notifications/basic/)
+* [Github](https://www.home-assistant.io/components/github/)
