@@ -71,7 +71,7 @@ services:
       start_period: 15s
 
   esphome:
-    image: df
+    image: ghcr.io/esphome/esphome
     container_name: esphome
     restart: unless-stopped
     networks:
@@ -79,8 +79,7 @@ services:
         ipv4_address: "${ESP_CONTAINER_IP}"
     volumes:
       - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}:/"
-    environment:
-      - TZ="${TIME_ZONE}"
+
 # If you are using my custom port-freedom
 # IPVLAN3 - defined in home-server-configuration
 # If not fix this to your network
