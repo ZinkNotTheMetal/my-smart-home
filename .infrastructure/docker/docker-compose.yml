@@ -59,7 +59,8 @@ services:
     depends_on:
       - homeassistant
     volumes:
-      - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}:/data"
+      - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}:/config"
+      - "/etc/localtime:/etc/localtime:ro"
     environment:
       - TZ="${TIME_ZONE}"
     healthcheck:
@@ -69,6 +70,17 @@ services:
       retries: 6
       start_period: 15s
 
+  esphome:
+    image: df
+    container_name: esphome
+    restart: unless-stopped
+    networks:
+      port-freedom:
+        ipv4_address: "${ESP_CONTAINER_IP}"
+    volumes:
+      - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}:/"
+    environment:
+      - TZ="${TIME_ZONE}"
 # If you are using my custom port-freedom
 # IPVLAN3 - defined in home-server-configuration
 # If not fix this to your network
