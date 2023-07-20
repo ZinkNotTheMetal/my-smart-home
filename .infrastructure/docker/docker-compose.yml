@@ -9,44 +9,30 @@ services:
     image: eclipse-mosquitto:latest
     container_name: mqtt
     restart: unless-stopped
-    ports:
-      - 1883:1883
     networks:
-      smart_home_network:
-    # If IPVLAN L3 docker network created by home-server-configuration
-    # Ports can be removed from above as this will give each container
-    #  it's own IP address. Note some networks cannot handle this but Unifi can
-    # networks:
-    #  port-freedom:
-    #    ipv4_address: "${MQTT_CONTAINER_IP}"
+      port-freedom:
+        ipv4_address: "${MQTT_CONTAINER_IP}"
     volumes:
-      - "${DOCKER_BASE_DIR}/mqtt/data:/mosquitto/data"
-      - "${DOCKER_BASE_DIR}/mqtt/config:/mosquitto/config"
-      - "${DOCKER_BASE_DIR}/mqtt/log:/mosquitto/log"
+      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/data:/mosquitto/data"
+      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/config:/mosquitto/config"
+      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/log:/mosquitto/log"
     environment:
       - TZ="${TIME_ZONE}"
 
   homeassistant:
-    image: homeassistant/home-assistant:stable   # Latest Production
+    image: homeassistant/home-assistant:stable # Latest Production
     # image: homeassistant/home-assistant:rc     # Latest Beta
     # image: homeassistant/home-assistant:x.x.x  # Specific Version
     container_name: homeassistant
     restart: unless-stopped
-    ports:
-      - 8123:8123
     networks:
-      smart_home_network:
-    # If IPVLAN L3 docker network created by home-server-configuration
-    # Ports can be removed from above as this will give each container
-    #  it's own IP address. Note some networks cannot handle this but Unifi can
-    # networks:
-    #  port-freedom:
-    #    ipv4_address: "${HA_CONTAINER_IP}"
+      port-freedom:
+        ipv4_address: "${HA_CONTAINER_IP}"
     depends_on:
       mqtt:
         condition: service_started
     volumes:
-      - "${DOCKER_BASE_DIR}/home_assistant/config:/config"
+      - "${DOCKER_BASE_DIR}/${HA_SUBDIRECTORY}:/config"
       - /etc/localtime:/etc/localtime:ro
     devices:
       # Mount Z-Wave Stick
@@ -67,20 +53,13 @@ services:
     image: nodered/node-red:latest
     container_name: node-red
     restart: unless-stopped
-    ports:
-      - 1880:1880
     networks:
-      smart_home_network:
-    # If IPVLAN L3 docker network created by home-server-configuration
-    # Ports can be removed from above as this will give each container
-    #  it's own IP address. Note some networks cannot handle this but Unifi can
-    # networks:
-    #  port-freedom:
-    #    ipv4_address: "${NR_CONTAINER_IP}"
+      port-freedom:
+        ipv4_address: "${NR_CONTAINER_IP}"
     depends_on:
       - homeassistant
     volumes:
-      - "${DOCKER_BASE_DIR}/node_red:/data"
+      - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}:/data"
     environment:
       - TZ="${TIME_ZONE}"
     healthcheck:
@@ -90,5 +69,10 @@ services:
       retries: 6
       start_period: 15s
 
+# If you are using my custom port-freedom
+# IPVLAN3 - defined in home-server-configuration
+# If not fix this to your network
 networks:
-  smart_home_network:
+  port-freedom:
+    external:
+      name: port-freedom
