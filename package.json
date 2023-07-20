@@ -8,7 +8,9 @@
 		"dev": "docker-compose --env-file .infrastructure/docker/.env.example -f .infrastructure/docker/docker-compose.yml up",
 		"clean": "rm -rf .dist/*",
 		"dist": "(cd src/home-assistant && zip -rq ../../.dist/config.zip *)",
-		"start": "docker-compose --env-file .infrastructure/docker/.env.prod -f .infrastructure/docker/docker-compose.yml up"
+		"start": "docker-compose --env-file .infrastructure/docker/.env -f .infrastructure/docker/docker-compose.yml up -d",
+		"stop": "docker-compose --env-file .infrastructure/docker/.env -f .infrastructure/docker/docker-compose.yml down",
+		"mqtt-init": "cp .infrastructure/mqtt/mosquitto.conf.example src/mqtt/config/mosquitto.conf"
 	},
 	"repository": {
 		"type": "git",
