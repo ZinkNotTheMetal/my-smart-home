@@ -20,7 +20,7 @@ services:
       - TZ="${TIME_ZONE}"
 
   homeassistant:
-    image: homeassistant/home-assistant:stable # Latest Production
+    image: homeassistant/home-assistant:stable   # Latest Production
     # image: homeassistant/home-assistant:rc     # Latest Beta
     # image: homeassistant/home-assistant:x.x.x  # Specific Version
     container_name: homeassistant
