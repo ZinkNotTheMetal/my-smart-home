@@ -78,7 +78,7 @@ services:
       port-freedom:
         ipv4_address: "${ESP_CONTAINER_IP}"
     volumes:
-      - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}:/"
+      - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}/config:/config"
 
 # If you are using my custom port-freedom
 # IPVLAN3 - defined in home-server-configuration
