@@ -60,12 +60,33 @@ Some prerequisites are needed:
 
 6. Comment out the Authentication at first
 
-7. Run the command to setup a new user
+    ```sh
+    allow_anonymous true
+    ```
+
+7. Turn on the containers (but we only need to interact with MQTT)
+
+   ```sh
+   npm run start
+   ```
+
+8. Run the command to setup a new user
 
     ```sh
     docker exec -it mqtt mosquitto_passwd -c /mosquitto/config/mqttuser hauser
     ```
 
-8. Choose a password for this user (it will be encrypted and hashed)
+9. Choose a password for this user (it will be encrypted and hashed)
 
-9. You're done, go back to the run steps above
+10. Turn off the containers (but we only need to interact with MQTT)
+
+     ```sh
+     npm run stop
+     ```
+
+11. Go to your <git_directory>/.infrastructure/mqtt/mosquitto.conf directory
+    and enable authentication again
+
+12. Turn everything on!
+
+13. You're done, go back to the run steps above

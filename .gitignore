@@ -52,3 +52,4 @@ www/community
 themes/
 *.august.conf
 node_modules
+*.DS_Store*
