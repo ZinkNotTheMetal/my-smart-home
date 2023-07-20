@@ -1,3 +1,4 @@
+---
 #############################################################
 #                                                           #
 #         System Monitor                                    #
@@ -16,3 +17,4 @@
     - type: load_15m
     - type: processor_use
     - type: last_boot
+    - type: processor_temperature
