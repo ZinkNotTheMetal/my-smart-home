@@ -24,3 +24,20 @@ homeassistant:
   unit_system: us_customary
 
 sensor: !include_dir_merge_list integrations/sensors
+
+#######################################################################################
+# SONOS Manual - Auto Discovery not working with multiple VLANs
+#
+# https://www.home-assistant.io/integrations/sonos/
+sonos: 
+  media_player:
+    hosts:
+      - !secret sonos_office_ip_address
+      - !secret sonos_arc_ip_address
+      - !secret sonos_mbed_1_ip_address
+      - !secret sonos_mbed_2_ip_address
+      - !secret sonos_move_ip_address
+      - !secret sonos_roam_ip_address
+      - !secret sonos_mbath_ip_address
+      - !secret sonos_kitchen_ip_address
+#######################################################################################
