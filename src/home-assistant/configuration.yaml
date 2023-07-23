@@ -41,3 +41,14 @@ sonos:
       - !secret sonos_mbath_ip_address
       - !secret sonos_kitchen_ip_address
 #######################################################################################
+
+#######################################################################################
+# SWAG Configuration (reverse proxy)
+#
+# https://www.home-assistant.io/integrations/sonos/
+http: 
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.0.0/12
+    - 172.16.0.0/12
+#######################################################################################
