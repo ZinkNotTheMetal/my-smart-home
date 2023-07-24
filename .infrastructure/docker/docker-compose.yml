@@ -14,7 +14,7 @@ services:
         ipv4_address: "${MQTT_CONTAINER_IP}"
     volumes:
       - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/data:/mosquitto/data"
-      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/config:/mosquitto/config"
+      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/config:/mosquitto/config:rw"
       - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/log:/mosquitto/log"
       - "/etc/localtime:/etc/localtime:ro"
     environment:
