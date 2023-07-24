@@ -45,7 +45,7 @@ sonos:
 #######################################################################################
 # SWAG Configuration (reverse proxy)
 #
-# https://www.home-assistant.io/integrations/sonos/
+# https://www.home-assistant.io/integrations/http/
 http:
   use_x_forwarded_for: true
   cors_allowed_origins:
