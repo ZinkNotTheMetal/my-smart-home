@@ -9,6 +9,7 @@ services:
     image: eclipse-mosquitto:latest
     container_name: mqtt
     restart: unless-stopped
+    privileged: true
     networks:
       port-freedom:
         ipv4_address: "${MQTT_CONTAINER_IP}"
