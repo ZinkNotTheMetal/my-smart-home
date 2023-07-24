@@ -36,9 +36,6 @@ services:
     volumes:
       - "${DOCKER_BASE_DIR}/${HA_SUBDIRECTORY}:/config"
       - /etc/localtime:/etc/localtime:ro
-    devices:
-      # Mount Z-Wave Stick
-      - /dev/ttyUSB-ZStick-5G:/dev/ttyUSB-ZStick-5G:rwm
     environment:
       - TZ="${TIME_ZONE}"
     healthcheck:
@@ -50,6 +47,24 @@ services:
     labels:
       com.centurylinklabs.watchtower.enable: "true"
     privileged: true
+
+  zwave-js:
+    image: zwavejs/zwave-js-ui:latest
+    container_name: zwave-js
+    restart: unless-stopped
+    tty: true
+    stop_signal: SIGINT
+    networks:
+      port-freedom:
+        ipv4_address: "${ZJS_CONTAINER_IP}"
+    volumes:
+      - "${DOCKER_BASE_DIR}/${ZJS_SUBDIRECTORY}:/usr/src/app/store"
+
+    depends_on:
+      - homeassistant
+    devices:
+      # Mount Z-Wave Stick
+      - /dev/ttyUSB-ZStick-5G:/dev/zwave:rwm
 
   node-red:
     image: nodered/node-red:latest
