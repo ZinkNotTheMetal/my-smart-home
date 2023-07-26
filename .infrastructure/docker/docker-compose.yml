@@ -63,6 +63,7 @@ services:
     depends_on:
       - homeassistant
     devices:
+      - /dev/ttyUSB1:/dev/ttyUSB1:rwm
       # Mount Z-Wave Stick
       - /dev/ttyUSB-ZStick-5G:/dev/zwave:rwm
 
