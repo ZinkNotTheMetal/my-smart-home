@@ -1,0 +1,27 @@
+---
+#############################################################
+#                                                           #
+#         Todoist                                           #
+# https://www.home-assistant.io/integrations/todoist/       #
+#                                                           #
+#############################################################
+- platform: todoist
+  token: !secret todoist_api_key
+  custom_projects:
+    - name: 'Due Today'
+      due_date_days: 0
+    - name: 'Publix List'
+      labels:
+        - Publix
+      include_projects:
+        - 'Shopping List'
+    - name: 'Home Depot List'
+      labels:
+        - HomeDepot
+      include_projects:
+        - 'Shopping List'    
+    - name: 'Sprouts List'
+      labels:
+        - Sprouts
+      include_projects:
+        - 'Shopping List'

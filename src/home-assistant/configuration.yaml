@@ -79,3 +79,11 @@ duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_access_token
 #######################################################################################
+
+
+#######################################################################################
+# Calendars
+#
+# https://www.home-assistant.io/integrations/calendar
+calendar: !include_dir_merge_list integrations/calendars
+#######################################################################################
