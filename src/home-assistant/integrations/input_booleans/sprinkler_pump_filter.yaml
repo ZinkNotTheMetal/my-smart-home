@@ -1,0 +1,5 @@
+---
+clean_sprinkler_filter:
+  name: "Clean Sprinkler Filter"
+  initial: false
+  icon: mdi:filter-remove

@@ -1,0 +1,5 @@
+---
+refrigerator_water_filter_replacement:
+  name: "Replace Refrigerator Filter"
+  initial: false
+  icon: mdi:filter-remove
