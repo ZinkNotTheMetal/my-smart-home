@@ -1,5 +1,5 @@
 ---
 sleep_mode:
   name: "Sleep Mode"
-  initial: off
+  initial: false
   icon: mdi:hotel
