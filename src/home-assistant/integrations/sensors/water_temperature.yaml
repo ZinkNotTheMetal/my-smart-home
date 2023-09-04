@@ -1,0 +1,14 @@
+---
+#############################################################
+#                                                           #
+#         Rest Sensor                                       #
+# https://www.home-assistant.io/integrations/sensor.rest    #
+#                                                           #
+#############################################################
+- platform: rest
+  name: "Current Water Temperature"
+  value_template: "{{ value_json.waterTemp }}"
+  scan_interval: 15
+  method: GET
+  resource: !secret lake_water_resource
+  unit_of_measurement: "°F"
