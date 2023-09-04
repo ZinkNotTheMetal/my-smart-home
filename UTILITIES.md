@@ -10,7 +10,7 @@ Once closed, this can be finalize we need to send warranty deed to HOA-Wise
 
 Contact
 
-* Website: <www.wisepm.com>
+* Website: www.wisepm.com
 * Phone Number: 813-968-5665
 * <ashleyf@wisepm.com>
 
@@ -168,6 +168,17 @@ Contact
 * Order Number: 833-206-94
 
 ## Pest Control
+
+Each home in the neighborhood has a proprietary system installed by HomeTeam Pest
+defense. This system allows HomeTeam to hookup to some internal hoses into the home
+to get pests out more effectively. I would recommend doing them but you are open
+to exploring other options if you would like.
+
+Contact:
+
+HomeTeam - Pest defense
+
+* Phone Number: 877-574-7500
 
 ## Lawn Service
 
