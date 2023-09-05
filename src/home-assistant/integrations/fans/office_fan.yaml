@@ -1,0 +1,34 @@
+###################################################################################
+#                                                                                 #
+#                  Office Fan                                                      #
+#                      Bought at HomeDepot monitored with Zigbee Power Monitor    #
+###################################################################################
+office_fan:
+  friendly_name: "Office fan"
+  value_template: "{{ }}"
+  set_speed:
+    service: fan
+  speeds:
+    - ''
+
+
+bedroom_fan:
+    friendly_name: "Bedroom Fan"
+    value_template: "{{ states('input_boolean.fan_bedroom_state') }}"
+    speed_template: "{{ states('input_select.fan_bedroom_speed') }}"
+    turn_on:
+      service: script.bedroom_fan_on
+    turn_off:
+      service: script.bedroom_fan_off
+    set_speed:
+      service: script.set_bedroom_fan_speed
+      data_template:
+        fan_speed: "{{ speed }}"
+    speeds: 
+      - 'off'
+      - '16%'
+      - '33'
+      - 'high'
+
+# Mapped out Wattages for Fan - https://www.homedepot.com/p/Home-Decorators-Collection-Levanto-52-in-LED-Indoor-Outdoor-Matte-Black-Ceiling-Fan-with-Light-34603/314460002
+# Speed 1 w/o light = 
