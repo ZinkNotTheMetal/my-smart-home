@@ -1,3 +1,4 @@
+---
 #############################################################
 #                                                           #
 #         Sensor Templates                                  #
@@ -28,7 +29,4 @@
             {% endif %}
           {%- endfor -%}
         {%- endfor -%}
-    back_sliding_glass_door:
-      friendly_name: 'Back Sliding Glass Door'
-      value_template: >
-        {{ is_state('binary_sensor.lumi_lumi_sensor_magnet_aq2_opening', 'on') or is_state('binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_3', 'on') }}
+    
