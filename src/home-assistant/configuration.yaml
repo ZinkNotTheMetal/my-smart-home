@@ -79,3 +79,9 @@ duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_access_token
 #######################################################################################
+
+#######################################################################################
+# Automations need to be present or they will not display in the UI
+# https://www.home-assistant.io/docs/automation/yaml/
+automation: !include automations.yaml
+###############################################################################################################################
