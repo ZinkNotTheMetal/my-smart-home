@@ -74,7 +74,7 @@ services:
       port-freedom:
         ipv4_address: "${NR_CONTAINER_IP}"
     environment:
-      - FLOWS="1440_flow.json"
+      - FLOWS=1440_flow.json
     depends_on:
       - homeassistant
     volumes:
