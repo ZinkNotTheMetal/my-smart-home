@@ -81,6 +81,16 @@ duckdns:
 #######################################################################################
 
 #######################################################################################
+# WeMo configuration
+#
+# https://www.home-assistant.io/integrations/wemo
+wemo:
+  discovery: true
+  static:
+    - !secret wemo_plug_ip
+#######################################################################################
+
+#######################################################################################
 # Automations need to be present or they will not display in the UI
 # https://www.home-assistant.io/docs/automation/yaml/
 automation: !include automations.yaml
