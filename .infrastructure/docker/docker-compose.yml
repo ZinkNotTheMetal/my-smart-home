@@ -76,7 +76,8 @@ services:
     depends_on:
       - homeassistant
     volumes:
-      - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}:/config"
+      - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}/data:/data"
+      - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}/config:/config"
       - "/etc/localtime:/etc/localtime:ro"
     healthcheck:
       test: ["CMD", "curl", "-f", "${NR_CONTAINER_URL}"]
