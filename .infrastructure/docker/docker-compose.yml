@@ -59,7 +59,6 @@ services:
         ipv4_address: "${ZJS_CONTAINER_IP}"
     volumes:
       - "${DOCKER_BASE_DIR}/${ZJS_SUBDIRECTORY}:/usr/src/app/store"
-
     depends_on:
       - homeassistant
     devices:
