@@ -91,17 +91,6 @@ wemo:
 #######################################################################################
 
 #######################################################################################
-# Traccar configuration (device presence)
-#
-# https://www.home-assistant.io/integrations/traccar/
-device_tracker:
-  - platform: traccar
-    host: !secret traccar_ip
-    username: !secret traccar_username
-    password: !secret traccar_password
-#######################################################################################
-
-#######################################################################################
 # Automations need to be present or they will not display in the UI
 # https://www.home-assistant.io/docs/automation/yaml/
 automation: !include automations.yaml
