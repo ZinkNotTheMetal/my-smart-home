@@ -54,6 +54,8 @@ services:
     restart: unless-stopped
     tty: true
     stop_signal: SIGINT
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
     networks:
       port-freedom:
         ipv4_address: "${ZJS_CONTAINER_IP}"
