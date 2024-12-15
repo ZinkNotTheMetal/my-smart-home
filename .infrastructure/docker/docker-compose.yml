@@ -48,7 +48,7 @@ services:
     environment:
       - TZ="${TIME_ZONE}"
     healthcheck:
-      test: ["CMD", "curl", "-f", "${HA_CONTAINER_URL}"]
+      test: ["CMD", "curl", "-f", "${HA_HEALTH_CHECK_URL}"]
       interval: 30s
       timeout: 10s
       retries: 6
@@ -76,7 +76,7 @@ services:
     environment:
       - FLOWS=1440_flow.json
     healthcheck:
-      test: ["CMD", "curl", "-f", "${NR_CONTAINER_URL}"]
+      test: ["CMD", "curl", "-f", "${NR_HEALTH_CHECK_URL}"]
       interval: 30s
       timeout: 10s
       retries: 6
@@ -94,7 +94,7 @@ services:
     volumes:
       - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}/config:/config"
     healthcheck:
-      test: ["CMD", "curl", "-f", "${ESP_CONTAINER_URL}"]
+      test: ["CMD", "curl", "-f", "${ESP_HEALTH_CHECK_URL}"]
       interval: 30s
       timeout: 10s
       retries: 6
