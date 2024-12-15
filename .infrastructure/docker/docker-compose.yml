@@ -1,25 +1,34 @@
 ---
-# Docker Compose file to create all smart home services
-version: "3"
+name: 'Smart Home'
 
 # Follow /docs/GETTING_STARTED.md if confused
 
 services:
-  mqtt:
-    image: eclipse-mosquitto:latest
-    container_name: mqtt
+  # ZWave UI for managing ZWave Devices in Home Assistant
+  zwave-js:
+    image: zwavejs/zwave-js-ui:latest
+    container_name: zwave-js
     restart: unless-stopped
+    tty: true
+    stop_signal: SIGINT
     networks:
       port-freedom:
-        ipv4_address: "${MQTT_CONTAINER_IP}"
+        ipv4_address: "${ZJS_CONTAINER_IP}"
+    depends_on:
+      - homeassistant
     volumes:
-      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/data:/mosquitto/data"
-      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/config:/mosquitto/config:rw"
-      - "${DOCKER_BASE_DIR}/${MQTT_SUBDIRECTORY}/log:/mosquitto/log"
-      - "/etc/localtime:/etc/localtime:ro"
-    environment:
-      - PUID=1000
-      - PGID=1000
+      - "${DOCKER_BASE_DIR}/${ZJS_SUBDIRECTORY}:/usr/src/app/store"
+    devices:
+      # Mount Z-Wave Stick
+      - /dev/ttyUSB-ZStick-5G:/dev/zwave:rwm
+    healthcheck:
+      test:  wget --no-verbose --tries=1 --spider localhost:8091/health/zwave --header "Accept:text/plain" || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 6
+      start_period: 20s
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
 
   homeassistant:
     image: homeassistant/home-assistant:stable   # Latest Production
@@ -29,9 +38,9 @@ services:
     restart: unless-stopped
     networks:
       port-freedom:
-        ipv4_address: "${HA_CONTAINER_IP}"
+        ipv4_address: "${HA_CONTAINER_IP}" # I believe I can remove this / SWAG doesn't support replicas though
     depends_on:
-      mqtt:
+      zwave-js:
         condition: service_started
     volumes:
       - "${DOCKER_BASE_DIR}/${HA_SUBDIRECTORY}:/config"
@@ -43,29 +52,13 @@ services:
       interval: 30s
       timeout: 10s
       retries: 6
-      start_period: 15s
+      start_period: 10s
     labels:
       com.centurylinklabs.watchtower.enable: "true"
     privileged: true
-
-  zwave-js:
-    image: zwavejs/zwave-js-ui:latest
-    container_name: zwave-js
-    restart: unless-stopped
-    tty: true
-    stop_signal: SIGINT
-    labels:
-      com.centurylinklabs.watchtower.enable: "true"
-    networks:
-      port-freedom:
-        ipv4_address: "${ZJS_CONTAINER_IP}"
-    volumes:
-      - "${DOCKER_BASE_DIR}/${ZJS_SUBDIRECTORY}:/usr/src/app/store"
-    depends_on:
-      - homeassistant
-    devices:
-      # Mount Z-Wave Stick
-      - /dev/ttyUSB-ZStick-5G:/dev/zwave:rwm
+    #deploy:
+    #  mode: replicated
+    #  replicas: 2
 
   node-red:
     image: nodered/node-red:latest
@@ -74,20 +67,22 @@ services:
     networks:
       port-freedom:
         ipv4_address: "${NR_CONTAINER_IP}"
-    environment:
-      - FLOWS=1440_flow.json
     depends_on:
       - homeassistant
     volumes:
       - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}/data:/data"
       - "${DOCKER_BASE_DIR}/${NR_SUBDIRECTORY}/config:/config"
       - "/etc/localtime:/etc/localtime:ro"
+    environment:
+      - FLOWS=1440_flow.json
     healthcheck:
       test: ["CMD", "curl", "-f", "${NR_CONTAINER_URL}"]
       interval: 30s
       timeout: 10s
       retries: 6
       start_period: 15s
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
 
   esphome:
     image: ghcr.io/esphome/esphome
@@ -98,6 +93,14 @@ services:
         ipv4_address: "${ESP_CONTAINER_IP}"
     volumes:
       - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}/config:/config"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "${ESP_CONTAINER_URL}"]
+      interval: 30s
+      timeout: 10s
+      retries: 6
+      start_period: 5s
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
 
 # If you are using my custom port-freedom
 # IPVLAN3 - defined in home-server-configuration
