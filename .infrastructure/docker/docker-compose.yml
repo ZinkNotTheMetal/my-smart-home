@@ -14,8 +14,6 @@ services:
     networks:
       docker_ipvlan:
         ipv4_address: "${ZJS_CONTAINER_IP}"
-    depends_on:
-      - homeassistant
     volumes:
       - "${DOCKER_BASE_DIR}/${ZJS_SUBDIRECTORY}:/usr/src/app/store"
     devices:
