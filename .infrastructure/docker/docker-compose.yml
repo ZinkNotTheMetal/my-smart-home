@@ -12,7 +12,7 @@ services:
     tty: true
     stop_signal: SIGINT
     networks:
-      port-freedom:
+      docker_ipvlan:
         ipv4_address: "${ZJS_CONTAINER_IP}"
     depends_on:
       - homeassistant
@@ -37,11 +37,11 @@ services:
     container_name: homeassistant
     restart: unless-stopped
     networks:
-      port-freedom:
+      docker_ipvlan:
         ipv4_address: "${HA_CONTAINER_IP}" # I believe I can remove this / SWAG doesn't support replicas though
     depends_on:
       zwave-js:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - "${DOCKER_BASE_DIR}/${HA_SUBDIRECTORY}:/config"
       - /etc/localtime:/etc/localtime:ro
@@ -65,7 +65,7 @@ services:
     container_name: node-red
     restart: unless-stopped
     networks:
-      port-freedom:
+      docker_ipvlan:
         ipv4_address: "${NR_CONTAINER_IP}"
     depends_on:
       - homeassistant
@@ -89,7 +89,7 @@ services:
     container_name: esphome
     restart: unless-stopped
     networks:
-      port-freedom:
+      docker_ipvlan:
         ipv4_address: "${ESP_CONTAINER_IP}"
     volumes:
       - "${DOCKER_BASE_DIR}/${ESP_SUBDIRECTORY}/config:/config"
@@ -102,10 +102,8 @@ services:
     labels:
       com.centurylinklabs.watchtower.enable: "true"
 
-# If you are using my custom port-freedom
 # IPVLAN3 - defined in home-server-configuration
 # If not fix this to your network
 networks:
-  port-freedom:
-    external:
-      name: port-freedom
+  docker_ipvlan:
+    external: true
