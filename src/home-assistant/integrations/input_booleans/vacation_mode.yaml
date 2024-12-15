@@ -1,5 +1,4 @@
 ---
 vacation_mode:
   name: "Vacation Mode"
-  initial: false
   icon: mdi:airplane-takeoff
